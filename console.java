@@ -9,7 +9,6 @@ class student{
 		this.dob=dob;
 	}
 	void display() {
-		System.out.println("Name\tEmail\tPhone\tDOB\t");
 		System.out.println(name+"\t"+email+"\t"+phone+"\t"+dob);
 	}
 }
@@ -21,7 +20,6 @@ class staff extends student{
 		 this.designation=designation;
 	}
 	void display() {
-		System.out.println("Name\tEmail\tPhone\tDOB\tDesignation\tdept");
 		System.out.println(name+"\t"+email+"\t"+phone+"\t"+dob+"\t"+designation+"\t"+dept);
 	}
 }
@@ -34,7 +32,6 @@ class dept{
 		 this.emp_no=emp_no;
 	}
 	void display() {
-		System.out.println("Dept_Name\tDept_Head\tNo.ofemployee");
 		System.out.println(name+"\t"+head+"\t"+emp_no);
 	}
 }
@@ -46,7 +43,9 @@ public class console {
 	        System.out.print("Choose your option : ");
 	    }
 	    public static void search(ArrayList<student> students,ArrayList<staff>staffs,ArrayList<dept>depts, String search){
-	    	for (student student : students){
+        	System.out.println("Students records: ");
+        	System.out.println("Name\tEmail\tPhone\tDOB\t");
+        	for (student student : students){
 	        	if (student.name.toLowerCase().contains(search.toLowerCase()))
 					student.display();
 	        	else if (student.email.toLowerCase().contains(search.toLowerCase()))
@@ -56,6 +55,8 @@ public class console {
 	        	else if (Integer.toString(student.phone).contains(search.toLowerCase()))
 					student.display();
 	        }
+        	System.out.println("Staffs records: ");
+    		System.out.println("Name\tEmail\tPhone\tDOB\tDesignation\tdept");
 	    	for (staff staff : staffs){
 	        	if (staff.name.toLowerCase().contains(search.toLowerCase()))
 					staff.display();
@@ -70,6 +71,8 @@ public class console {
 	        	else if (Integer.toString(staff.phone).contains(search.toLowerCase()))
 					staff.display();
 	        }
+    		System.out.println("Dept_Name\tDept_Head\tNo.ofemployee");
+        	System.out.println("Department records: ");
 	    	for (dept dept : depts){
 	        	if (dept.name.toLowerCase().contains(search.toLowerCase()))
 					dept.display();
@@ -150,11 +153,14 @@ public class console {
 	                	break;
 	                case 5:
 	                	System.out.println("Students records: ");
+	                	System.out.println("Name\tEmail\tPhone\tDOB\t");
 	                	for(student student:students)
 	                		student.display();
 	                	System.out.println("Staffs records: ");
+	            		System.out.println("Name\tEmail\tPhone\tDOB\tDesignation\tdept");
 	                	for(staff staff:staffs)
 	                		staff.display();
+	            		System.out.println("Dept_Name\tDept_Head\tNo.ofemployee");
 	                	System.out.println("Department records: ");
 	                	for(dept de:depts)
 	                		de.display();
